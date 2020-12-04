@@ -157,7 +157,6 @@ def save(fname, file_url):
     file.close()
 
 def main(url):
-	#open('direct-links.txt', 'w').close()
 	server, id = check_url(url)
 	file_url, fname = extract(url, server, id)
 	if cfg.save_links:
