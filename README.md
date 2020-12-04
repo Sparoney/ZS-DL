@@ -22,7 +22,7 @@ Download from DLC container and a single regular URL to default directory:
 |   __|__   |___|  |  |  |__
 |_____|_____|   |____/|_____|
 
-usage: zs-dl.py [-h] -u URLS [URLS ...] [-o OUTPUT_PATH] [-ov] [-p PROXY]
+usage: zs-dl.py [-h] -u URLS [URLS ...] [-o OUTPUT_PATH] [-ov] [-p PROXY] [-s]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -34,4 +34,5 @@ optional arguments:
   -ov, --overwrite      Overwrite file if already exists.
   -p PROXY, --proxy PROXY
                         HTTPS only. <IP>:<port>.
+  -s, --save-links      Save links to file, instead of downloading.
 ```

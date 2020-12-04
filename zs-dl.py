@@ -56,6 +56,11 @@ def parse_prefs():
 		'-p', '--proxy',
 		help='HTTPS only. <IP>:<port>.'
 	)
+	parser.add_argument(
+		'-s', '--save-links',
+		action='store_true',
+		help='Save links to file, instead of downloading.'
+	)
 	args = parser.parse_args()
 	if args.urls[0].endswith('.txt'):
 		args.urls = read_txt(args.urls[0])
@@ -144,11 +149,21 @@ def download(ref, url, fname):
 					if chunk:
 						f.write(chunk)
 						bar.update(len(chunk))
+                        
+def save(fname, file_url):
+    print(fname)
+    file = open("direct-links.txt", "a+")
+    file.write(file_url+"\n")
+    file.close()
 
 def main(url):
+	#open('direct-links.txt', 'w').close()
 	server, id = check_url(url)
 	file_url, fname = extract(url, server, id)
-	download(url, file_url, fname)
+	if cfg.save_links:
+		save(fname, file_url)
+	else:
+		download(url, file_url, fname)
 
 if __name__ == '__main__':
 	try:
