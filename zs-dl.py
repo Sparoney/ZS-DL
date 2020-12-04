@@ -187,6 +187,7 @@ if __name__ == '__main__':
 	|   __|__   |___|  |  |  |__
 	|_____|_____|   |____/|_____|		 
 	""")
+	open('direct-links.txt', 'w').close()
 	cfg = parse_prefs()
 	dir_setup()
 	if cfg.proxy:
